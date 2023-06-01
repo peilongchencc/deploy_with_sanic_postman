@@ -1,15 +1,32 @@
-# 使用 form.get 方法从网页获取 key-value 数据并处理：
+# 通过Blueprint使用 form.get 方法从网页获取 key-value 数据并处理：
 ## 代码逻辑介绍：
-这里介绍使用 request.form.get("question") 的方式，从网页端获取 key 对应的 value 值，并处理。
+使用蓝图通过**公共前缀**对路由进行命名空间隔离：  
+bp1 = Blueprint('blueprint1', url_prefix='/bp1')    &nbsp;&nbsp;# url_prefix 表示该蓝图的公共前缀；<br>
+bp2 = Blueprint('blueprint2', url_prefix='/bp2')  
+
+即支持下面这种写法：  
+@bp1.route("/segment", methods=["POST"])  
+@bp2.route("/segment", methods=["POST"])  
+  
+不必担心url的部分重复，因为前缀不一样，所以对应的网址也不一样。<br>
+```python
+http://localhost:8000/bp1/segment
+http://localhost:8000/bp2/segment  
+```
+解释：  
+区别于 x-www-form-urlencoded 中使用的 @app.route("/segment", methods=["POST"])，  
+因为蓝图会注册到应用程序(app)，所以直接用 @bp1.route("/segment", methods=["POST"]) 的方式；  
+
+然后使用 request.form.get("question") 的方式，从网页端获取 key 对应的 value 值，并处理。
 需要获取的变量有2个：<br>
 question 和 answer
 ## 文件夹中的两个文件的作用如下：
-nlp_utils_form.py ：提供三个函数方法，因使用了装饰器@staticmethod，所以可以不用实例化类就直接调用；
-role_form.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils.py 中的方法处理数据；
+nlp_utils_form_bp.py ：提供三个函数方法，因使用了装饰器@staticmethod，所以可以不用实例化类就直接调用；<br>
+role_form_bp.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils_bp.py 中的方法处理数据；
 ## postman 中的设置如下：
 1. 点击New创建一个新的测试界面；
 2. 选择 http 模式；
-3. 根据 role_form.py 中设置的模式选择 GET 或 POST，自己选择的 POST；
+3. 根据 role_form_bp.py 中设置的模式选择 GET 或 POST，自己选择的 POST；
 4. 填入 URl；
 注意访问的网址写法:<br>
 http://localhost:8000/   ✅✅✅<br>
