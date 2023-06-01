@@ -13,7 +13,7 @@ bp2 = Blueprint('blueprint2', url_prefix='/bp2')
 http://localhost:8000/bp1/segment
 http://localhost:8000/bp2/segment  
 ```
-解释：  
+**解释：**  
 区别于 x-www-form-urlencoded 中使用的 @app.route("/segment", methods=["POST"])，  
 因为蓝图会注册到应用程序(app)，所以直接用 @bp1.route("/segment", methods=["POST"]) 的方式；  
 
