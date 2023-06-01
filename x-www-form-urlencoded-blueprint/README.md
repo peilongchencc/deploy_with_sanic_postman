@@ -20,9 +20,10 @@ http://localhost:8000/bp2/segment
 然后使用 request.form.get("question") 的方式，从网页端获取 key 对应的 value 值，并处理。
 需要获取的变量有2个：<br>
 question 和 answer
-## 文件夹中的两个文件的作用如下：
+## 各文件的作用如下：
 nlp_utils_form_bp.py ：提供三个函数方法，因使用了装饰器@staticmethod，所以可以不用实例化类就直接调用；<br>
-role_form_bp.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils_bp.py 中的方法处理数据；
+role_form_bp.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils_bp.py 中的方法处理数据；  
+利用公共IP访问-附设置方式.png：自己使用 postman 利用外部设备通过公共IP访问成功的图片，图片中也有公共IP的查找方式；(我的电脑是mac)
 ## postman 中的设置如下：
 1. 点击New创建一个新的测试界面；
 2. 选择 http 模式；
