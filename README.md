@@ -41,7 +41,7 @@ if __name__ == "__main__":
 http://localhost:8000/   ✅✅✅<br>
 http://0.0.0.0:8000 &nbsp;&nbsp;&nbsp;&nbsp; ❌❌❌ 这种是外部计算机访问的方式，自己本地需要用上面的localhost方式；  
 关于公共IP的设置方式，点击这里[这里](https://github.com/peilongchencc/deploy_with_sanic_postman/blob/main/x-www-form-urlencoded/blueprint-used/%E5%88%A9%E7%94%A8%E5%85%AC%E5%85%B1IP%E8%AE%BF%E9%97%AE-%E9%99%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E5%BC%8F.png)  。  
-## Postman简介：  
+## Postman简介：（持续更新中...）  
 ### 为什么选择Postman?  
 如今，Postman的开发者已超过1000万(来自官网)，选择使用Postman的原因如下:  
 简单易用 - 要使用Postman，你只需登录自己的账户，只要在电脑上安装了Postman应用程序，就可以方便地随时随地访问文件。  
@@ -54,4 +54,7 @@ http://0.0.0.0:8000 &nbsp;&nbsp;&nbsp;&nbsp; ❌❌❌ 这种是外部计算机�
 持续集成——通过其支持持续集成的能力，可以维护开发实践。  
 ### 安装：  
 根据自己电脑的版本选择合适的型号安装即可，我的电脑是mac，所以安装的mac版本，然后进入workspace即可；  
-### 主界面用法介绍：
+### 主界面用法介绍：  
+![postman主界面](https://github.com/peilongchencc/deploy_with_sanic_postman/blob/main/postman%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%A0%87%E8%AF%86.png)。
+### 具体用法：  
+具体用法可参考我每个文件夹下的图示。  
