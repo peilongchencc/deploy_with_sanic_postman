@@ -55,6 +55,6 @@ http://0.0.0.0:8000 &nbsp;&nbsp;&nbsp;&nbsp; ❌❌❌ 这种是外部计算机�
 ### 安装：  
 根据自己电脑的版本选择合适的型号安装即可，我的电脑是mac，所以安装的mac版本，然后进入workspace即可；  
 ### 主界面用法介绍：  
-![postman主界面](https://github.com/peilongchencc/deploy_with_sanic_postman/blob/main/postman%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%A0%87%E8%AF%86.png)。
+![postman主界面](https://github.com/peilongchencc/deploy_with_sanic_postman/blob/main/postman%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%A0%87%E8%AF%86.png) 
 ### 具体用法：  
 具体用法可参考我每个文件夹下的图示。  
