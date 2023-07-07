@@ -8,7 +8,7 @@ app = Sanic("HanLP-API")
 @app.route("/segment", methods=["POST"])
 async def segment(request):
     """分词API"""
-    text = request.form.get("question")
+    text = request.form.get("question")    # postman 测试时字段的名称需要对应，此处写"question"，postman写"que"就会报错。
     label = request.form.get("answer")
     if not text:
         return json({"error": "Missing 'question' parameter"}, status=400)
