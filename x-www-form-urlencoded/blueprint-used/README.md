@@ -19,7 +19,36 @@ http://localhost:8000/bp2/segment
 
 然后使用 request.form.get("question") 的方式，从网页端获取 key 对应的 value 值，并处理。
 需要获取的变量有2个：<br>
-question 和 answer
+question 和 answer  
+
+**延伸：连接阿里云服务器配置的域名也会用到**  
+假设你在阿里云服务器开启了一个 **端口为7711** 的服务，你联系管理员帮你开通这个端口。  
+然后管理员给你了一个域名 https://mynet/nlp-server ，告诉你这个域名对应的就是7711这个端口。  
+此时你就可以进行如下配置：<br> 
+```python
+import jieba
+
+app = Sanic("HanLP-API")
+
+nlpBlueprint = Blueprint('match_nlp-serveri_domain_name', url_prefix='/nlp-server') # 这里使用蓝图的作用不是为了隔离命名空间，是为了进行域名匹配，匹配到 /nlp-server。
+
+@nlpBlueprint.route("/segment", methods=["POST"])
+async def segment(request):
+    """分词API"""
+    text = request.form.get("question")
+    if not text:
+        return json({"error": "Missing 'question' parameter"}, status=400)
+
+    re_text = jieba.lcut(text)
+    return json({"分词结果为：": re_text})
+
+# 将蓝图注册到应用程序
+app.blueprint(nlpBlueprint)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7711)
+```
+在 postman 测试时输入 https://ci.7min.com.cn/nlp-server/answer ，填写字段，就可连接服务。<br>
 ## 各文件的作用如下：
 nlp_utils_form_bp.py ：提供三个函数方法，因使用了装饰器@staticmethod，所以可以不用实例化类就直接调用；<br>
 role_form_bp.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils_bp.py 中的方法处理数据；  
