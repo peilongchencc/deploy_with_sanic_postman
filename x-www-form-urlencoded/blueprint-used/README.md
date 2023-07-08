@@ -23,7 +23,7 @@ question 和 answer
 
 **延伸：连接阿里云服务器配置的域名也会用到蓝图。**  
 假设你在阿里云服务器开启了一个 **端口为7711** 的服务，你联系管理员帮你开通这个端口。  
-然后管理员给你了一个域名 https://mynet/nlp-server (不需要输入端口号)，告诉你这个域名对应的就是7711这个端口。  
+然后管理员给你了一个域名   https://mynet/nlp-server   ，告诉你这个域名对应的就是7711这个端口。  
 此时你就可以进行如下配置：<br> 
 ```python
 import jieba
@@ -48,7 +48,7 @@ app.blueprint(nlpBlueprint)
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=7711)
 ```
-在 postman 测试时输入 https://ci.7min.com.cn/nlp-server/answer ，填写字段，就可连接服务。<br>
+在 postman 测试时输入 https://ci.7min.com.cn/nlp-server/answer (不需要输入端口号)，填写字段，就可连接服务。<br>
 ## 各文件的作用如下：
 nlp_utils_form_bp.py ：提供三个函数方法，因使用了装饰器@staticmethod，所以可以不用实例化类就直接调用；<br>
 role_form_bp.py ：sanic 部署文件，创建IP连接，从 postman 获取网页数据后，使用 nlp_utils_bp.py 中的方法处理数据；  
